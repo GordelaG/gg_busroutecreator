@@ -3,7 +3,7 @@ A complete in-game route creator for FiveM, allowing staff members to create, ed
 
 Built by **Gordela**.
 
-▶️ [Veja o vídeo](https://youtu.be/22OWSxHRGX4)
+![Preview](https://youtu.be/22OWSxHRGX4)
 
 ## 📌 Table of Contents
 - [Overview](#overview)
