@@ -1,17 +1,17 @@
 local routes = {}
 local fileName = 'routescreated.lua'
 
--- Salvar rotas em formato exportável (com vector3 e vector4)
+-- Save routes in an exportable format (with vector3 and vector4)
 local function saveToFile()
     local fileContent = 'cfg.routeData = ' .. dumpTable(routes, 0)
     SaveResourceFile(GetCurrentResourceName(), fileName, fileContent, -1)
 end
 
--- Carregar rotas do arquivo
+-- Load routes from file
 local function loadRoutes()
     local file = LoadResourceFile(GetCurrentResourceName(), fileName)
     if not file then
-        --print("[BusRoute] Nenhum arquivo encontrado, iniciando vazio.")
+        --print("[BusRoute] No file found, starting empty.")
         return
     end
 
@@ -22,21 +22,21 @@ local function loadRoutes()
 
     local fn, err = load(file, '@busroutes', 't', env)
     if not fn then
-        --print("[BusRoute] Erro ao carregar arquivo: " .. err)
+        --print("[BusRoute] Error loading file: " .. err)
         return
     end
 
     local ok, result = pcall(fn)
     if not ok then
-        --print("[BusRoute] Erro ao executar rotas: " .. result)
+        --print("[BusRoute] Error executing routes: " .. result)
         return
     end
 
     routes = result.cfg and result.cfg.routeData or result.cfg or {}
-    --print("[BusRoute] Rotas carregadas com sucesso.")
+    --print("[BusRoute] Routes loaded successfully.")
 end
 
--- Função para formatar tabelas como string (com indentação e vector3/4)
+-- Function to format tables as a string (with indentation and vector3/4)
 function dumpTable(tbl, indent)
     indent = indent or 0
     local formatting = string.rep("\t", indent)
@@ -75,18 +75,18 @@ function dumpTable(tbl, indent)
     return str
 end
 
--- Eventos
+-- Events
 RegisterNetEvent('busroute:saveRoutes', function(newRoutes)
     routes = newRoutes
     saveToFile()
-    --print("[BusRoute] Rotas salvas com sucesso.")
+    --print("[BusRoute] Routes saved successfully.")
 end)
 
 RegisterNetEvent('busroute:requestRoutes', function()
     TriggerClientEvent('busroute:loadRoutes', source, routes)
 end)
 
--- Carrega ao iniciar
+-- Load on start
 CreateThread(function()
     Wait(500)
     loadRoutes()
