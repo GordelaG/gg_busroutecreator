@@ -1,5 +1,5 @@
 local routes = {}
-local fileName = 'routescreated.lua'
+local fileName = 'data/routescreated.lua'
 
 -- Save routes in an exportable format (with vector3 and vector4)
 local function saveToFile()
