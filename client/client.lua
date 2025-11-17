@@ -43,12 +43,12 @@ end)
 
 RegisterNetEvent('busroute:createRoute', function()
     local input = lib.inputDialog(_L('dialog_title'), {
-        { type = 'input', label = _L('label_route'), required = true },
-        { type = 'input', label = _L('label_area'), required = true },
-        { type = 'number', label = _L('label_level'), required = true },
-        { type = 'number', label = _L('label_seats'), required = true },
-        { type = 'number', label = _L('label_money'), required = true },
-        { type = 'number', label = _L('label_exp'), required = true },
+        { type = 'input', label = _L('label_route'), required = true, description = _L('ds_route')},
+        { type = 'input', label = _L('label_area'), required = true, description = _L('ds_area')},
+        { type = 'number', label = _L('label_level'), required = true, description = _L('ds_level')},
+        { type = 'number', label = _L('label_seats'), required = true, description = _L('ds_seats')},
+        { type = 'number', label = _L('label_money'), required = true, description = _L('ds_money')},
+        { type = 'number', label = _L('label_exp'), required = true, description = _L('ds_exp')},
     })
 
     if not input then return end
@@ -182,8 +182,8 @@ RegisterNetEvent('busroute:editRouteStops', function(data)
 
     lib.registerContext({
         id = 'busroute_select_stops_' .. data.routeIndex,
-        title = 'Editar Paradas - ' .. route.label,
-        menu = 'busroute_select_route',
+        title = _L('menu_edit_title') .. route.label,
+        menu = _L('menu_edit_desc'),
         options = stopOptions
     })
 
