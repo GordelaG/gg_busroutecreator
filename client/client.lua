@@ -21,7 +21,7 @@ local function saveRoutes()
     TriggerServerEvent('busroute:saveRoutes', routes)
 end
 
-RegisterCommand('criarrotas', function(source)
+RegisterCommand('createroutes', function(source)
     lib.registerContext({
         id = 'bus_route_main',
         title = _L('menu_title'),

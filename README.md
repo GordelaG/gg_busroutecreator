@@ -48,10 +48,10 @@ Config.Locale = 'en'
 ```
 
 # Commands
-**/criarrotas** – Opens the main menu to create/edit routes.
+**/createroutes** – Opens the main menu to create/edit routes.
 
 # How to Create Routes In-Game
-1. Use `/criarrotas`
+1. Use `/createroutes`
 2. Choose "Create New Route"
 3. Fill route information
 4. Add stops with **E**, finish with **G**
