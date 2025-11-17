@@ -13,7 +13,7 @@ client_script 'client/client.lua'
 server_script 'server/server.lua'
 
 files {
-    'routes.lua'
+    'data/routescreated.lua'
 }
 
 lua54 'yes'
